@@ -3,6 +3,8 @@ const { EventEmitter } = require('events');
 function createLogger() {
   const emitter = new EventEmitter();
 
+  emitter.on('error', () => {}); // prevent unhandled 'error' crash
+
   emitter.phase = function (name, status, meta) {
     this.emit('phase', {
       name,

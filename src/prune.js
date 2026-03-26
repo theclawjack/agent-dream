@@ -10,12 +10,10 @@ async function prune({ memoryFile, stateFile, updatedMemory, state, processedFil
   const updatedState = {
     ...state,
     lastDream: new Date().toISOString(),
-    dailyFilesProcessed: [
-      ...state.dailyFilesProcessed,
-      ...processedFiles,
-    ],
+    dailyFilesProcessed: [...new Set([...state.dailyFilesProcessed, ...processedFiles])],
   };
 
+  await fs.mkdir(path.dirname(stateFile), { recursive: true });
   await writeState(stateFile, updatedState);
 
   return updatedState;

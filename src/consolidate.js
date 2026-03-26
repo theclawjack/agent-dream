@@ -7,7 +7,11 @@ async function consolidate({ longTermMemory, newLogs, consolidateFn }) {
     return longTermMemory;
   }
 
-  return await consolidateFn(longTermMemory, newLogs);
+  const result = await consolidateFn(longTermMemory, newLogs);
+  if (typeof result !== 'string') {
+    throw new TypeError(`consolidateFn must return a string, got ${typeof result}`);
+  }
+  return result;
 }
 
 module.exports = { consolidate };

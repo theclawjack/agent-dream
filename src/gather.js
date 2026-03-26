@@ -6,9 +6,21 @@ async function gather({ logsDir, unprocessedFiles }) {
     return [];
   }
 
+  const SAFE_FILENAME_RE = /^[\w.-]+$/;
+  for (const filename of unprocessedFiles) {
+    if (!SAFE_FILENAME_RE.test(filename)) {
+      throw new Error(`gather: unsafe filename rejected: ${filename}`);
+    }
+  }
+
   const results = [];
   for (const filename of unprocessedFiles) {
-    const content = await fs.readFile(path.join(logsDir, filename), 'utf8');
+    let content;
+    try {
+      content = await fs.readFile(path.join(logsDir, filename), 'utf8');
+    } catch (err) {
+      throw new Error(`gather: failed to read ${filename}: ${err.message}`);
+    }
     const date = filename.replace(/\.md$/, '');
     results.push({ filename, date, content });
   }
