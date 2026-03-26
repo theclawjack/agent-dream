@@ -1,7 +1,7 @@
 {
   "name": "agent-dream",
   "version": "0.1.0",
-  "description": "Framework-agnostic memory consolidation cycle for AI agents. BYOLLM — bring your own LLM.",
+  "description": "Framework-agnostic memory consolidation cycle for AI agents. BYOLLM \u2014 bring your own LLM.",
   "main": "src/index.js",
   "bin": {
     "agent-dream": "bin/agent-dream.js"
@@ -22,5 +22,14 @@
   },
   "devDependencies": {
     "jest": "^29.7.0"
-  }
+  },
+  "author": "Jet Ng <jetamin94@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theclawjack/agent-dream.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theclawjack/agent-dream/issues"
+  },
+  "homepage": "https://github.com/theclawjack/agent-dream#readme"
 }
