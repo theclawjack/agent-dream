@@ -1,0 +1,26 @@
+{
+  "name": "agent-dream",
+  "version": "0.1.0",
+  "description": "Framework-agnostic memory consolidation cycle for AI agents. BYOLLM — bring your own LLM.",
+  "main": "src/index.js",
+  "bin": {
+    "agent-dream": "bin/agent-dream.js"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "memory",
+    "consolidation",
+    "llm"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
